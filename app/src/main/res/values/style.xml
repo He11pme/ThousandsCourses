@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.ThousandsCourses.SearchBar" parent="Widget.Material3.SearchBar">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.ThousandsCourses.SearchView</item>
+    </style>
+
+    <style name="Widget.ThousandsCourses.Button.IconButton.Filled" parent="Widget.Material3.Button.IconButton.Filled">
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconTint">@color/white</item>
+        <item name="backgroundTint">@color/dark_gray</item>
+    </style>
+    <style name="Widget.ThousandsCourses.Button.IconButton.Filled.Medium"/>
+
+</resources>

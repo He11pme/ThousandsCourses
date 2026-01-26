@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ThemeOverlay.ThousandsCourses.SearchView" parent="ThemeOverlay.Material3.Search">
+        <item name="colorSurfaceContainerHigh">@color/dark_gray</item>
+        <item name="colorOnSurfaceVariant">@color/white</item>
+    </style>
+
+</resources>

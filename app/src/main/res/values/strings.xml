@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ThousandsCourses</string>
+    <string name="search_courses">Search courses...</string>
 </resources>
