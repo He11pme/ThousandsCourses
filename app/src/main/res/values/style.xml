@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="Widget.ThousandsCourses.AppBar" parent="Widget.Material3.AppBarLayout">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="Widget.ThousandsCourses.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleTextAppearance">@style/TextAppearance.ThousandsCourses.ToolbarTitle</item>
+        <item name="contentInsetEnd">16dp</item>
+        <item name="contentInsetStart">0dp</item>
+    </style>
+
     <style name="Widget.ThousandsCourses.SearchBar" parent="Widget.Material3.SearchBar">
         <item name="materialThemeOverlay">@style/ThemeOverlay.ThousandsCourses.SearchView</item>
     </style>
@@ -14,7 +24,8 @@
         <item name="iconTint">@color/white</item>
         <item name="backgroundTint">@color/dark_gray</item>
     </style>
-    <style name="Widget.ThousandsCourses.Button.IconButton.Filled.Medium"/>
+
+    <style name="Widget.ThousandsCourses.Button.IconButton.Filled.Medium" />
 
     <style name="Widget.ThousandsCourses.BottomAppBar" parent="Widget.Material3.BottomAppBar.Legacy">
         <item name="android:layout_gravity">bottom</item>
@@ -24,7 +35,11 @@
     </style>
 
     <style name="Widget.ThousandsCourses.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
-        <item name="materialThemeOverlay">@style/ThemeOverlay.ThousandsCourses.BottomNavigationView</item>
+        <item name="materialThemeOverlay">
+            @style/ThemeOverlay.ThousandsCourses.BottomNavigationView
+        </item>
+        <item name="itemTextAppearanceActive">@style/ThemeOverlay.ThousandsCourses.BottomNavigationView</item>
+        <item name="itemTextAppearanceInactive">@style/ThemeOverlay.ThousandsCourses.BottomNavigationView</item>
     </style>
 
 </resources>

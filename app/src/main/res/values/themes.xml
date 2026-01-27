@@ -1,7 +1,11 @@
 <resources>
-    <style name="Base.Theme.ThousandsCourses" parent="Theme.Material3.DayNight.NoActionBar">
 
+    <style name="Base.Theme.ThousandsCourses" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
     </style>
 
-    <style name="Theme.ThousandsCourses" parent="Base.Theme.ThousandsCourses" />
+    <style name="Theme.ThousandsCourses" parent="Base.Theme.ThousandsCourses">
+        <item name="appBarLayoutStyle">@style/Widget.ThousandsCourses.AppBar</item>
+    </style>
 </resources>

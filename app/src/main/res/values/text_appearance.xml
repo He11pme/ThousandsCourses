@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance.ThousandsCourses.ToolbarTitle" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextAppearance.ThousandsCourses.BottomNavigationView" parent="TextAppearance.Material3.TitleMedium"/>
+
+</resources>

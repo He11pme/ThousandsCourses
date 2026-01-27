@@ -2,7 +2,8 @@
 <resources>
     <string name="app_name">ThousandsCourses</string>
     <string name="search_courses">Поиск курсов...</string>
-    <string name="profile">Аккаунт</string>
+    <string name="profile">Профиль</string>
+    <string name="account">Аккаунт</string>
     <string name="favorites">Избранное</string>
     <string name="home">Главная</string>
 </resources>

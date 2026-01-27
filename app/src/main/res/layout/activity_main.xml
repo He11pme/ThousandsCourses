@@ -1,66 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/dark"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <data>
+
+        <variable
+            name="appBarState"
+            type="io.github.he11pme.thousandscourses.AppBarManager.AppBarState" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent">
+        android:layout_height="match_parent"
+        android:background="@color/dark"
+        tools:context=".MainActivity">
 
-        <com.google.android.material.appbar.MaterialToolbar
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/contentContainer"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:contentInsetStart="0dp">
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:navGraph="@navigation/main_nav" />
 
-            <LinearLayout
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                style="@style/Widget.ThousandsCourses.Toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:paddingStart="@{appBarState.paddingLeft}">
 
-                <com.google.android.material.search.SearchBar
-                    android:id="@+id/searchBar"
-                    style="@style/Widget.ThousandsCourses.SearchBar"
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_weight="1"
-                    android:hint="@string/search_courses" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility='@{appBarState.visibilitySearchBar}'>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/filterBtn"
-                    style="@style/Widget.ThousandsCourses.Button.IconButton.Filled.Medium"
-                    android:layout_width="@dimen/icon_button_medium"
-                    android:layout_height="@dimen/icon_button_medium"
-                    android:layout_marginEnd="16dp"
-                    app:icon="@drawable/ic_filter" />
+                    <com.google.android.material.search.SearchBar
+                        android:id="@+id/searchBar"
+                        style="@style/Widget.ThousandsCourses.SearchBar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:hint="@string/search_courses" />
 
-            </LinearLayout>
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/filterBtn"
+                        style="@style/Widget.ThousandsCourses.Button.IconButton.Filled.Medium"
+                        android:layout_width="@dimen/icon_button_medium"
+                        android:layout_height="@dimen/icon_button_medium"
+                        app:icon="@drawable/ic_filter" />
 
-        </com.google.android.material.appbar.MaterialToolbar>
+                </LinearLayout>
 
-    </com.google.android.material.appbar.AppBarLayout>
+            </com.google.android.material.appbar.MaterialToolbar>
 
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar"
-        style="@style/Widget.ThousandsCourses.BottomAppBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="com.google.android.material.behavior.HideViewOnScrollBehavior">
+        </com.google.android.material.appbar.AppBarLayout>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
-            style="@style/Widget.ThousandsCourses.BottomNavigationView"
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            style="@style/Widget.ThousandsCourses.BottomAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:menu="@menu/bottom_navigation_menu" />
+            app:layout_behavior="com.google.android.material.behavior.HideViewOnScrollBehavior">
 
-    </com.google.android.material.bottomappbar.BottomAppBar>
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigationView"
+                style="@style/Widget.ThousandsCourses.BottomNavigationView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:menu="@menu/bottom_navigation_menu" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
