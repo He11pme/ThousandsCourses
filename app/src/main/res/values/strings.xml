@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">ThousandsCourses</string>
     <string name="search_courses">Search courses...</string>
+    <string name="profile">Profile</string>
+    <string name="favorites">Favorites</string>
+    <string name="home">Home</string>
 </resources>

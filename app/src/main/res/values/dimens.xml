@@ -2,5 +2,6 @@
 <resources>
 
     <dimen name="icon_button_medium">56dp</dimen>
+    <dimen name="content_inset_side_bottom_app_bar">8dp</dimen>
 
 </resources>

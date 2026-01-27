@@ -6,4 +6,15 @@
         <item name="colorOnSurfaceVariant">@color/white</item>
     </style>
 
+    <style name="ThemeOverlay.ThousandsCourses.BottomNavigationView" parent="ThemeOverlay.Material3.BottomNavigationView">
+        <item name="colorSecondaryContainer">@color/light_gray</item>
+        <item name="colorOnSecondaryContainer">@color/green</item>
+        <item name="colorOnSurface">@color/green</item>
+        <item name="colorOnSurfaceVariant">@color/white</item>
+    </style>
+
+    <style name="ThemeOverlay.ThousandsCourses.BottomAppBar" parent="ThemeOverlay.Material3.BottomAppBar.Legacy">
+        <item name="colorSurfaceContainer">@color/dark_gray</item>
+    </style>
+
 </resources>
