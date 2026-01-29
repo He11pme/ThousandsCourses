@@ -27,6 +27,11 @@
 
     <style name="Widget.ThousandsCourses.Button.IconButton.Filled.Medium" />
 
+    <style name="Widget.ThousandsCourses.FavoriteButton" parent="Widget.ThousandsCourses.Button.IconButton.Filled.Medium">
+        <item name="backgroundTint">@color/glass</item>
+        <item name="iconSize">16dp</item>
+    </style>
+
     <style name="Widget.ThousandsCourses.BottomAppBar" parent="Widget.Material3.BottomAppBar.Legacy">
         <item name="android:layout_gravity">bottom</item>
         <item name="contentInsetStart">@dimen/content_inset_side_bottom_app_bar</item>
@@ -38,8 +43,37 @@
         <item name="materialThemeOverlay">
             @style/ThemeOverlay.ThousandsCourses.BottomNavigationView
         </item>
-        <item name="itemTextAppearanceActive">@style/ThemeOverlay.ThousandsCourses.BottomNavigationView</item>
-        <item name="itemTextAppearanceInactive">@style/ThemeOverlay.ThousandsCourses.BottomNavigationView</item>
+        <item name="itemTextAppearanceActive">
+            @style/ThemeOverlay.ThousandsCourses.BottomNavigationView
+        </item>
+        <item name="itemTextAppearanceInactive">
+            @style/ThemeOverlay.ThousandsCourses.BottomNavigationView
+        </item>
+    </style>
+
+    <style name="Widget.ThousandsCourses.InfoBadge" parent="">
+        <item name="android:background">@drawable/br_rounded</item>
+        <item name="android:clipToOutline">true</item>
+        <item name="android:outlineProvider">background</item>
+        <item name="android:paddingStart">6dp</item>
+        <item name="android:paddingEnd">6dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+
+    <style name="Widget.ThousandsCourses.TextWithDrawable" parent="">
+        <item name="android:drawablePadding">4dp</item>
+    </style>
+
+    <style name="Widget.ThousandsCourses.BottomSection.Item" parent="">
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+    </style>
+
+    <style name="Widget.ThousandsCourses.BottomSection.Item.Description">
+        <item name="android:alpha">0.7</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">2</item>
     </style>
 
 </resources>

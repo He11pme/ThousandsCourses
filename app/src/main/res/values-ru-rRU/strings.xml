@@ -6,4 +6,6 @@
     <string name="account">Аккаунт</string>
     <string name="favorites">Избранное</string>
     <string name="home">Главная</string>
+    <string name="sort_by_date_added">По дате добавления</string>
+    <string name="more_details">Подробнее</string>
 </resources>

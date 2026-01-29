@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="course"
+            type="io.github.he11pme.thousandscourses.data.model.Course" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:strokeWidth="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_gray">
+
+            <eightbitlab.com.blurview.BlurTarget
+                android:id="@+id/coverBlurTarget"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="2.877"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/cover"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/holo_blue_bright"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/cover"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Medium" />
+
+            </eightbitlab.com.blurview.BlurTarget>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/favoriteBtn"
+                style="@style/Widget.ThousandsCourses.FavoriteButton"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_margin="8dp"
+                app:icon="@drawable/ic_favorites"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <eightbitlab.com.blurview.BlurView
+                android:id="@+id/rateBlurView"
+                style="@style/Widget.ThousandsCourses.InfoBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                app:blurOverlayColor="@color/glass"
+                app:layout_constraintBottom_toBottomOf="@+id/coverBlurTarget"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/rate"
+                    style="@style/Widget.ThousandsCourses.TextWithDrawable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:drawableStart="@drawable/ic_star_fill"
+                    android:text='@{String.format("%.1f", course.rate)}'
+                    android:textAppearance="@style/TextAppearance.ThousandsCourses.Caption"
+                    android:textColor="@color/white"
+                    tools:text="4.9" />
+
+            </eightbitlab.com.blurview.BlurView>
+
+            <eightbitlab.com.blurview.BlurView
+                android:id="@+id/dateBlurView"
+                style="@style/Widget.ThousandsCourses.InfoBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:blurOverlayColor="@color/glass"
+                app:layout_constraintBottom_toBottomOf="@+id/rateBlurView"
+                app:layout_constraintStart_toEndOf="@+id/rateBlurView"
+                app:layout_constraintTop_toTopOf="@+id/rateBlurView">
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='@{course.formattedPublishDate}'
+                    android:textAppearance="@style/TextAppearance.ThousandsCourses.Caption"
+                    tools:text="22 Мая 2024" />
+
+            </eightbitlab.com.blurview.BlurView>
+
+            <TextView
+                android:id="@+id/titleCourse"
+                style="@style/Widget.ThousandsCourses.BottomSection.Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text='@{course.title}'
+                android:textAppearance="@style/TextAppearance.ThousandsCourses.Title.Medium"
+                app:layout_constraintTop_toBottomOf="@+id/coverBlurTarget"
+                tools:text="Java-разработчик с нуля" />
+
+            <TextView
+                android:id="@+id/descriptionCourse"
+                style="@style/Widget.ThousandsCourses.BottomSection.Item.Description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text='@{course.description}'
+                android:textAppearance="@style/TextAppearance.ThousandsCourses.Body.Small"
+                app:layout_constraintStart_toStartOf="@+id/titleCourse"
+                app:layout_constraintTop_toBottomOf="@+id/titleCourse"
+                tools:text="Освойте backend-разработку и программирование на Java, фреймворки Spring и Maven, работу с базами данных и API. Создайте свой собственный проект, собрав портфолио и став востребованным специалистом для любой IT компании." />
+
+            <TextView
+                android:id="@+id/priceCourse"
+                style="@style/Widget.ThousandsCourses.BottomSection.Item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="16dp"
+                android:text='@{course.price + " ₽"}'
+                android:textAppearance="@style/TextAppearance.ThousandsCourses.Title.Medium"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/descriptionCourse"
+                app:layout_constraintTop_toBottomOf="@+id/descriptionCourse"
+                tools:text="999 ₽" />
+
+            <TextView
+                android:id="@+id/moreDetailsInfo"
+                style="@style/Widget.ThousandsCourses.TextWithDrawable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:drawableEnd="@drawable/arrow_right"
+                android:text="@string/more_details"
+                android:textAppearance="@style/TextAppearance.ThousandsCourses.Button.Small"
+                android:textColor="@color/green"
+                app:layout_constraintBottom_toBottomOf="@+id/priceCourse"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/priceCourse" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

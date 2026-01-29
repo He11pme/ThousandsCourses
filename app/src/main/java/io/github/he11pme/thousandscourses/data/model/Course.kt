@@ -2,6 +2,9 @@ package io.github.he11pme.thousandscourses.data.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 @Serializable
 data class Course(
@@ -14,4 +17,15 @@ data class Course(
     val startDate: String,
     val hasLike: Boolean,
     val publishDate: String
-)
+) {
+    val formattedPublishDate: String = formateDate(publishDate)
+
+    val formattedStartDate: String = formateDate(startDate)
+
+    private fun formateDate(date: String): String {
+        return runCatching {
+            LocalDate.parse(date, DateTimeFormatter.ISO_DATE)
+                .format(DateTimeFormatter.ofPattern("d MMMM yyyy", Locale.getDefault()))
+        }.getOrDefault("")
+    }
+}

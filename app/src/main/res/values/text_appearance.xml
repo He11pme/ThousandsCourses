@@ -1,10 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="TextAppearance.ThousandsCourses.ToolbarTitle" parent="TextAppearance.Material3.HeadlineMedium">
+    <style name="TextAppearance.ThousandsCourses" parent="android:TextAppearance">
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="TextAppearance.ThousandsCourses.BottomNavigationView" parent="TextAppearance.Material3.TitleMedium"/>
+    <style name="TextAppearance.ThousandsCourses.Roboto.Regular" parent="TextAppearance.ThousandsCourses">
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="TextAppearance.ThousandsCourses.Roboto.Medium" parent="TextAppearance.ThousandsCourses">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="TextAppearance.ThousandsCourses.Roboto.SemiBold" parent="TextAppearance.ThousandsCourses">
+        <item name="fontFamily">@font/roboto_semi_bold</item>
+    </style>
+
+    <style name="TextAppearance.ThousandsCourses.Headline" parent="TextAppearance.ThousandsCourses.Roboto.Regular">
+        <item name="android:textSize">28sp</item>
+        <item name="lineHeight">36sp</item>
+    </style>
+
+    <style name="TextAppearance.ThousandsCourses.Title.Large" parent="TextAppearance.ThousandsCourses.Roboto.Regular">
+        <item name="android:textSize">22sp</item>
+        <item name="lineHeight">28sp</item>
+    </style>
+
+    <style name="TextAppearance.ThousandsCourses.Title.Medium" parent="TextAppearance.ThousandsCourses.Roboto.Medium">
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">18sp</item>
+    </style>
+
+    <style name="TextAppearance.ThousandsCourses.Button" parent="TextAppearance.ThousandsCourses.Roboto.Medium">
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20sp</item>
+        <!--        <item name="android:letterSpacing">0.1</item>-->
+    </style>
+
+    <style name="TextAppearance.ThousandsCourses.Button.Small" parent="TextAppearance.ThousandsCourses.Roboto.SemiBold">
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">15sp</item>
+        <!--        <item name="android:letterSpacing">0.4</item>-->
+    </style>
+
+    <style name="TextAppearance.ThousandsCourses.Body" parent="TextAppearance.ThousandsCourses.Roboto.Regular">
+
+    </style>
+
+    <style name="TextAppearance.ThousandsCourses.Body.Medium">
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20sp</item>
+        <!--        <item name="android:letterSpacing">0.25</item>-->
+    </style>
+
+    <style name="TextAppearance.ThousandsCourses.Body.Small">
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">16sp</item>
+        <!--        <item name="android:letterSpacing">0.4</item>-->
+    </style>
+
+    <style name="TextAppearance.ThousandsCourses.Caption" parent="TextAppearance.ThousandsCourses.Roboto.Regular">
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">14sp</item>
+        <!--        <item name="android:letterSpacing">0.4</item>-->
+    </style>
+
+
+    <style name="TextAppearance.ThousandsCourses.ToolbarTitle" parent="TextAppearance.ThousandsCourses.Headline">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextAppearance.ThousandsCourses.BottomNavigationView" parent="TextAppearance.ThousandsCourses.Title.Medium" />
 
 </resources>

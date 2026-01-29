@@ -6,4 +6,5 @@
     <color name="dark_gray">#24252a</color>
     <color name="light_gray">#32333a</color>
     <color name="stroke">#4d555e</color>
+    <color name="glass">#32333A30</color>
 </resources>
