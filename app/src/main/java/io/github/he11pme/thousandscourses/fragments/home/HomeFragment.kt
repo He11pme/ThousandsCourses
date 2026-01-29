@@ -28,6 +28,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+        binding.viewModel = viewModel
 
         bindToViewModel()
         setUpViews()

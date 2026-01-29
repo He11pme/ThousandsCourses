@@ -18,13 +18,15 @@ class HomeViewModel @Inject constructor(
     private val _state = MutableLiveData<State>()
     val state: LiveData<State> get() = _state
 
+    private var ascending = true
+
     fun loadCourses() {
         _state.value = State.Loading
 
         viewModelScope.launch {
             coursesRepository.getAllCourses().apply {
-                onSuccess {
-                    _state.value = State.Loaded(it)
+                onSuccess { courses ->
+                    _state.value = State.Loaded(sortByPublishDate(courses))
                 }
                 onFailure {
                     _state.value = State.Error(it)
@@ -32,6 +34,23 @@ class HomeViewModel @Inject constructor(
             }
         }
 
+    }
+
+    fun onClickSortBtn() = sort()
+
+    private fun sort() {
+        (_state.value as? State.Loaded)?.let {
+            _state.value = State.Loaded(sortByPublishDate(it.courses))
+        }
+    }
+
+    private fun sortByPublishDate(list: List<Course>): List<Course> {
+        val sorted = if (ascending) list.sortedBy { it.publishDate }
+        else list.sortedByDescending { it.publishDate }
+
+        ascending = !ascending
+
+        return sorted
     }
 
     sealed interface State {
