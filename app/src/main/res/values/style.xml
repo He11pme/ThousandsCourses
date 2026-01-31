@@ -114,5 +114,10 @@
         <item name="android:textAppearance">@style/TextAppearance.ThousandsCourses.Button</item>
     </style>
 
+    <style name="Widget.ThousandsCourses.ButtonWithDrawable.ChevronRight" parent="">
+        <item name="android:textAppearance">@style/TextAppearance.ThousandsCourses.Button</item>
+        <item name="android:drawableEnd">@drawable/ic_chevron_right</item>
+    </style>
+
 
 </resources>
