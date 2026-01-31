@@ -1,6 +1,7 @@
 package io.github.he11pme.thousandscourses
 
 import android.os.Bundle
+import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowInsetsCompat
@@ -50,6 +51,14 @@ class MainActivity : AppCompatActivity() {
         setUpAppBar()
         setupBottomNavigation()
         observeDestinationChange()
+        handleBack()
+    }
+
+    private fun handleBack() {
+        onBackPressedDispatcher.addCallback(this) {
+            if (supportFragmentManager.backStackEntryCount == 0) finish()
+            else supportFragmentManager.popBackStack()
+        }
     }
 
     private fun setUpAppBar() {
