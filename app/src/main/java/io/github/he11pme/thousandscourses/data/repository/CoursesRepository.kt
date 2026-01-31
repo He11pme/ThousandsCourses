@@ -1,5 +1,7 @@
 package io.github.he11pme.thousandscourses.data.repository
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.map
 import dagger.hilt.android.scopes.ActivityRetainedScoped
 import io.github.he11pme.thousandscourses.data.local.room.dao.FavoriteCoursesDao
 import io.github.he11pme.thousandscourses.data.local.room.entity.FavoriteCourseEntity
@@ -64,8 +66,8 @@ class CoursesRepository @Inject constructor(
         }
     }
 
-    suspend fun getAllFavorites(): List<Result<Course>> {
-        return favoriteCoursesDao.getAllFavorites().map { getCoursesById(it.id) }
+    fun observeFavoriteIds(): LiveData<List<Int>> {
+        return favoriteCoursesDao.observeAllFavorites().map { it.map { entity -> entity.id } }
     }
 
     suspend fun removeFavoriteById(movieId: Int) {

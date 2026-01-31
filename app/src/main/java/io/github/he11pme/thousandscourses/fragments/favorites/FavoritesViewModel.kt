@@ -21,16 +21,20 @@ class FavoritesViewModel @Inject constructor(
     fun loadFavoriteCourses() {
         _state.value = State.Loading
 
-        viewModelScope.launch {
-            val result = coursesRepository.getAllFavorites()
+        coursesRepository.observeFavoriteIds()
+            .observeForever { ids ->
+                viewModelScope.launch {
+                    val courses = ids.mapNotNull {
+                        coursesRepository.getCoursesById(it).getOrNull()
+                    }
 
-            if (result.all { it.isFailure }) {
-                _state.value = State.Error(RuntimeException("All favorites is failure"))
-                return@launch
+                    _state.value = when {
+                        courses.isEmpty() -> State.Empty
+                        else -> State.Loaded(courses)
+                    }
+                }
             }
 
-            _state.value = State.Loaded(result.mapNotNull { it.getOrNull() })
-        }
     }
 
 
@@ -57,7 +61,6 @@ class FavoritesViewModel @Inject constructor(
     sealed interface State {
         data class Loaded(val courses: List<Course>) : State
         object Loading : State
-        data class Error(val e: Throwable) : State
         object Empty : State
     }
 

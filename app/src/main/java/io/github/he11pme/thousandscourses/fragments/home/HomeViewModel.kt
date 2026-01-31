@@ -34,6 +34,10 @@ class HomeViewModel @Inject constructor(
             }
         }
 
+        coursesRepository.observeFavoriteIds().observeForever { ids ->
+            updateFavorites(ids)
+        }
+
     }
 
     fun onClickSortBtn() = sort()
@@ -54,21 +58,20 @@ class HomeViewModel @Inject constructor(
     fun onClickFavoriteBtn(id: Int) = toggleFavorite(id)
 
     private fun toggleFavorite(id: Int) {
-        setUpLoadedData {
-            it.map { course ->
-                if (course.id == id) course.copy(
-                    isFavorite = coursesRepository.toggleFavorite(id)
-                ) else course
-            }
-        }
-
+        viewModelScope.launch { coursesRepository.toggleFavorite(id) }
     }
 
-    private fun setUpLoadedData(doIsLoaded: suspend (List<Course>) -> List<Course>) {
-        viewModelScope.launch {
-            (_state.value as? State.Loaded)?.let {
-                _state.value = State.Loaded(doIsLoaded(it.courses))
+    private fun updateFavorites(ids: List<Int>) {
+        setUpLoadedData {
+            it.map { course ->
+                course.copy(isFavorite = course.id in ids)
             }
+        }
+    }
+
+    private fun setUpLoadedData(doIsLoaded: (List<Course>) -> List<Course>) {
+        (_state.value as? State.Loaded)?.let {
+            _state.value = State.Loaded(doIsLoaded(it.courses))
         }
     }
 

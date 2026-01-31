@@ -1,5 +1,6 @@
 package io.github.he11pme.thousandscourses.data.local.room.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -18,5 +19,5 @@ interface FavoriteCoursesDao {
     suspend fun isFavorite(id: Int): Boolean
 
     @Query("SELECT * FROM favorite_courses")
-    suspend fun getAllFavorites(): List<FavoriteCourseEntity>
+    fun observeAllFavorites(): LiveData<List<FavoriteCourseEntity>>
 }
