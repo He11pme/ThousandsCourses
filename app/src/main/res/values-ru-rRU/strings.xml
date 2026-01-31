@@ -8,4 +8,10 @@
     <string name="home">Главная</string>
     <string name="sort_by_date_added">По дате добавления</string>
     <string name="more_details">Подробнее</string>
+    <string name="log_in">Вход</string>
+    <string name="password">Пароль</string>
+    <string name="enter_your_password">Введите пароль</string>
+    <string name="forgot_password">Забыл пароль</string>
+    <string name="registration">Регистрация</string>
+    <string name="no_account">Нет аккаунта?</string>
 </resources>

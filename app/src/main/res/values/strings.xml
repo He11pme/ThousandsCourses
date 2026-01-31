@@ -7,4 +7,12 @@
     <string name="home">Home</string>
     <string name="sort_by_date_added">Sort by data added</string>
     <string name="more_details">More details</string>
+    <string name="log_in">Log-in</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="example_email" translatable="false">example@gmail.com</string>
+    <string name="password">Password</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="forgot_password">Forgot your password</string>
+    <string name="registration">Registration</string>
+    <string name="no_account">Don\'t have an account?</string>
 </resources>

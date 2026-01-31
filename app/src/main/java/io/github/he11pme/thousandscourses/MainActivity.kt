@@ -65,6 +65,7 @@ class MainActivity : AppCompatActivity() {
     private fun observeDestinationChange() {
         navController.addOnDestinationChangedListener { _, dest, _ ->
             binding.appBarState = when (dest.id) {
+                R.id.loginFragment -> appBarManager.emptyBar
                 R.id.homeFragment -> appBarManager.searchBar
                 else -> appBarManager.defaultBar
             }

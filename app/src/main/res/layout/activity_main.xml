@@ -30,6 +30,7 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="@{appBarState.visibilityAppBar}"
             app:liftOnScroll="false">
 
             <com.google.android.material.appbar.MaterialToolbar
@@ -73,6 +74,7 @@
             style="@style/Widget.ThousandsCourses.BottomAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="@{appBarState.visibilityBottomNav}"
             app:layout_behavior="com.google.android.material.behavior.HideViewOnScrollBehavior">
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
