@@ -45,6 +45,7 @@
                 style="@style/Widget.ThousandsCourses.TextInputEditTextLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.email}"
                 android:hint="@string/example_email" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -70,16 +71,19 @@
                 style="@style/Widget.ThousandsCourses.TextInputEditTextLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.password}"
                 android:hint="@string/enter_your_password"
                 android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/loginBtn"
             style="@style/Widget.ThousandsCourses.ButtonLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:onClickListener="@{() -> viewModel.onClickLoginBtn()}"
             android:text="@string/log_in" />
 
         <LinearLayout
@@ -131,7 +135,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="8dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:onClickListener="@{() -> viewModel.onClickVkBtn()}" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/Widget.ThousandsCourses.Button.IconButton.Filled.Media.OK"
@@ -139,7 +144,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:onClickListener="@{() -> viewModel.onCLickOkBtn()}" />
 
         </LinearLayout>
 
