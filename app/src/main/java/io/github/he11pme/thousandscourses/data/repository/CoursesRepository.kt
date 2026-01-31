@@ -68,4 +68,8 @@ class CoursesRepository @Inject constructor(
         return favoriteCoursesDao.getAllFavorites().map { getCoursesById(it.id) }
     }
 
+    suspend fun removeFavoriteById(movieId: Int) {
+        favoriteCoursesDao.removeFavorite(FavoriteCourseEntity(movieId))
+    }
+
 }
