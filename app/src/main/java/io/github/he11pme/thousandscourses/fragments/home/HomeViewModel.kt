@@ -39,9 +39,7 @@ class HomeViewModel @Inject constructor(
     fun onClickSortBtn() = sort()
 
     private fun sort() {
-        (_state.value as? State.Loaded)?.let {
-            _state.value = State.Loaded(sortByPublishDate(it.courses))
-        }
+        setUpLoadedData { sortByPublishDate(it) }
     }
 
     private fun sortByPublishDate(list: List<Course>): List<Course> {
@@ -51,6 +49,27 @@ class HomeViewModel @Inject constructor(
         ascending = !ascending
 
         return sorted
+    }
+
+    fun onClickFavoriteBtn(id: Int) = toggleFavorite(id)
+
+    private fun toggleFavorite(id: Int) {
+        setUpLoadedData {
+            it.map { course ->
+                if (course.id == id) course.copy(
+                    isFavorite = coursesRepository.toggleFavorite(id)
+                ) else course
+            }
+        }
+
+    }
+
+    private fun setUpLoadedData(doIsLoaded: suspend (List<Course>) -> List<Course>) {
+        viewModelScope.launch {
+            (_state.value as? State.Loaded)?.let {
+                _state.value = State.Loaded(doIsLoaded(it.courses))
+            }
+        }
     }
 
     sealed interface State {

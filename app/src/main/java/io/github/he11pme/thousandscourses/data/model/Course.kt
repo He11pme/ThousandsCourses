@@ -2,6 +2,7 @@ package io.github.he11pme.thousandscourses.data.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
@@ -16,7 +17,9 @@ data class Course(
     val rate: Double,
     val startDate: String,
     val hasLike: Boolean,
-    val publishDate: String
+    val publishDate: String,
+    @Transient
+    val isFavorite: Boolean = false
 ) {
     val formattedPublishDate: String = formateDate(publishDate)
 

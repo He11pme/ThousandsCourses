@@ -47,7 +47,8 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_margin="8dp"
-                app:icon="@drawable/ic_favorites"
+                app:icon="@{course.isFavorite ? @drawable/ic_favorites_fill : @drawable/ic_favorites}"
+                app:iconTint="@{course.isFavorite ? @color/green : @color/white}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,10 +69,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:drawableStart="@drawable/ic_star_fill"
                     android:text='@{String.format("%.1f", course.rate)}'
                     android:textAppearance="@style/TextAppearance.ThousandsCourses.Caption"
                     android:textColor="@color/white"
+                    app:drawableStartCompat="@drawable/ic_star_fill"
                     tools:text="4.9" />
 
             </eightbitlab.com.blurview.BlurView>
@@ -140,10 +141,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:drawableEnd="@drawable/arrow_right"
                 android:text="@string/more_details"
                 android:textAppearance="@style/TextAppearance.ThousandsCourses.Button.Small"
                 android:textColor="@color/green"
+                app:drawableEndCompat="@drawable/arrow_right"
                 app:layout_constraintBottom_toBottomOf="@+id/priceCourse"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/priceCourse" />

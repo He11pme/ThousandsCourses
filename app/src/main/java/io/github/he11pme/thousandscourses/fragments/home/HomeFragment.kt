@@ -63,7 +63,5 @@ class HomeFragment : Fragment() {
 
     }
 
-    private fun onClickFavoriteBtn(id: Int) {
-
-    }
+    private fun onClickFavoriteBtn(id: Int) = viewModel.onClickFavoriteBtn(id)
 }
